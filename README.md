@@ -10,7 +10,22 @@ UFID: TODO
 
 # Instructions
 
-todo
+Use Python 13 to run src\main.py in order to use the cache replacement comparer.
+
+```
+python src\main.py INPUT
+```
+
+## Example Usage
+
+```powershell
+python src\main.py 3 5
+1 2 3 4 5
+```
+
+```powershell
+gc data\in1.txt | python src\main.py
+```
 
 # Question 1
 
