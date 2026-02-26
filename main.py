@@ -1,14 +1,3 @@
-#input parsing
-'''
-input example:
-3 15
-1 2 3 4 1 2 3 4 1 2 3 4 5 1 2
-'''
-k, m = map(int, input().split())
-seq = list(map(int, input().split()))
-
-
-
 def FIFO(k, m, seq):
     cache = []
     hits = 0
@@ -73,8 +62,33 @@ def OPTFF(k, m, seq):
     return misses, hits
 
 
+def parse_input():
+    #input parsing
+    '''
+    input example:
+    3 15
+    1 2 3 4 1 2 3 4 1 2 3 4 5 1 2
+    '''
+    k, m = map(int, input().split())
+    seq = list(map(int, input().split()))
+    return (k, m, seq)
+
+def test_input(k, m, seq):
+    return {
+        'FIFO': FIFO(k, m, seq),
+        'LRU': LRU(k, m, seq),
+        'OPTFF': OPTFF(k, m, seq)
+    }
 
 
-print(FIFO(k, m, seq))
-print(LRU(k, m, seq))
-print(OPTFF(k, m, seq))
+def to_output_format(results):
+    out = ''
+    for key, value in results.items():        
+        out += f'{key.ljust(5)} : {value[0]}\n' # Canvas only asks for misses
+    return out
+
+
+if __name__ == '__main__':
+    results = test_input(*parse_input()) # tuple unpack
+    print(to_output_format(results)) 
+
