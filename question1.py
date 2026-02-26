@@ -7,7 +7,7 @@ def create_random_input(k, m):
 def to_table(results, inputs):
     out = f' File   k    m    FIFO    LRU  OPTFF\n'
     for i, result in enumerate(results):
-        out += f'File{i+1}  30   {str(inputs[i][1]).rjust(3)}'
+        out += f'File{i+1}  {inputs[i][0]}   {str(inputs[i][1]).rjust(3)}'
         for alg, v in result.items():
             out += str(v[0]).rjust(7)
         out += "\n"
@@ -17,7 +17,7 @@ def to_markdown_table(results, inputs):
     out = f'| File | k | m | FIFO | LRU | OPTFF |\n'
     out += f'| ---- | --- | --- | --- | --- | --- |\n'
     for i, result in enumerate(results):
-        out += f'| File{i+1} | 30 | {str(inputs[i][1]).rjust(3)} | '
+        out += f'| File{i+1} | {inputs[i][0]} | {str(inputs[i][1]).rjust(3)} | '
         for alg, v in result.items():
             out += str(v[0]).rjust(7) + ' | '
         out += "\n"

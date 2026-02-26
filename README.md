@@ -30,7 +30,21 @@ todo
 
 # Question 2
 
-todo
+The following input:
+
+3 7
+
+5 2 1 5 0 5 2
+
+Gives the resulting hit counts:
+
+FIFO  : 6
+
+LRU   : 5
+
+OPTFF : 4
+
+It makes sense that OPTFF is more optimal than FIFO/LRU. OPTFF uses information from the future to make the best current decision, while the other algorithms only consider what has already occurred, and can't make any decisions based on future requests. 
 
 # Question 3
 
