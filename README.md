@@ -63,4 +63,13 @@ It makes sense that OPTFF is more optimal than FIFO/LRU. OPTFF uses information 
 
 # Question 3
 
-todo
+Assume A is an optimal offline algorithm. Let t be the first time at which A and OPTFF differ.
+
+At time t, suppose there is a page fault and the cache is full. Let OPTFF evict page x, and let A evict a different page y.
+
+By definition of OPTFF, page x is the page whose next request occurs farthest in the future among all pages currently in the cache. Therefore, the next time page x is requested will be further in the future than the next time page y is requested.
+
+In A, we can instead evict page x at time t and page y where page x used to be. This action of swapping can only decrease or not affect the number of future page faults in algorithm A, it cannot make it worse. So A can be modified like this repeatedly each time A and OPTFF differ.
+
+When the end of this is reached, A has been modified without loss of optimality to OPTFF. Therefore, OPTFF is optimal.
+
