@@ -23,8 +23,10 @@ python src\main.py 3 5
 1 2 3 4 5
 ```
 
+To recreate the out1.txt, you can use the following command, or just manually type the input data in in1.txt:
+
 ```powershell
-gc data\in1.txt | python src\main.py
+cat data\in1.txt | python src\main.py
 ```
 
 # Question 1
